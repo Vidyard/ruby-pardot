@@ -3,6 +3,7 @@ module Pardot
   class Client
 
     include HTTParty
+    default_timeout 10 # seconds
     base_uri 'https://pi.pardot.com'
     format :xml
 
