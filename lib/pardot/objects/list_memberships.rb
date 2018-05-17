@@ -19,7 +19,7 @@ module Pardot
         end
 
         def read_by_id id, params = {}
-          get "/do/read/id/#{id}", params
+          get "/do/read/id/#{Pardot::Escape.escape id}", params
         end
 
         protected

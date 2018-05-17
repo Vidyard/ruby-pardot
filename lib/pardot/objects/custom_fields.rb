@@ -23,11 +23,11 @@ module Pardot
         end
 
         def read_by_id(id, params={})
-          get("do/read/id/#{id}", params)
+          get("do/read/id/#{Pardot::Escape.escape id}", params)
         end
 
         def update_by_id(id, params={})
-          post("do/update/id/#{id}", params)
+          post("do/update/id/#{Pardot::Escape.escape id}", params)
         end
 
         private

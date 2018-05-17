@@ -14,11 +14,11 @@ module Pardot
         end
 
         def read_by_id id
-          get "/do/read/id/#{id}"
+          get "/do/read/id/#{Pardot::Escape.escape id}"
         end
 
         def send_to_prospect prospect_id, params
-          post "/do/send/prospect_id/#{prospect_id}", params
+          post "/do/send/prospect_id/#{Pardot::Escape.escape prospect_id}", params
         end
 
         def send_to_list params
