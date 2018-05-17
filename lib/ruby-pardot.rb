@@ -2,6 +2,7 @@ require 'httparty'
 require 'crack'
 require 'cgi'
 
+require 'pardot/escape'
 require 'pardot/http'
 require 'pardot/error'
 require 'pardot/authentication'
