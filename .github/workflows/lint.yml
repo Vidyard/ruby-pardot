@@ -1,0 +1,12 @@
+name: Lint
+
+on:
+  push:
+
+
+jobs:
+  build:
+    runs-on: [self-hosted, linux]
+    steps:
+    - name: Download the code
+      uses: actions/checkout@v2
