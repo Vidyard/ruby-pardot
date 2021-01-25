@@ -1,16 +1,13 @@
 module Pardot
   module Http
-
     def get object, path, params = {}, num_retries = 0
       headers = {}
       smooth_params_and_headers object, params, headers
       full_path = fullpath object, path
       headers = create_auth_header object
       check_response self.class.get(full_path, :query => params, :headers => headers)
-      
     rescue Pardot::ExpiredApiKeyError => e
       handle_expired_api_key :get, object, path, params, num_retries, e
-
     rescue SocketError, Interrupt, EOFError, SystemCallError, Timeout::Error, MultiXml::ParseError => e
       raise Pardot::NetError.new(e)
     end
@@ -20,10 +17,8 @@ module Pardot
       full_path = fullpath object, path
       headers = create_auth_header object
       check_response self.class.post(full_path, :query => params, :body => bodyParams, :headers => headers)
-      
     rescue Pardot::ExpiredApiKeyError => e
       handle_expired_api_key :post, object, path, params, num_retries, e
-
     rescue SocketError, Interrupt, EOFError, SystemCallError, Timeout::Error, MultiXml::ParseError => e
       raise Pardot::NetError.new(e)
     end
@@ -79,6 +74,5 @@ module Pardot
       end
       full
     end
-
   end
 end
